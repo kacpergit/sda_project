@@ -1,0 +1,40 @@
+[
+  {
+    "model": "blog.post",
+    "pk": 1, "fields":
+    {
+      "title": "jak działa ORM?",
+      "body": "jakis krotki opis. ORM jest bardzo fajny i fajnie dziala.",
+      "signature": "Kacper Klekot", "created": "2021-09-11T13:38:54.391Z"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2, "fields":
+    {
+      "title": "Wstep do Pythona",
+      "body": "Pozdrawiam mame",
+      "signature": null,
+      "created": "2021-09-12T07:37:19.485Z"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3, "fields":
+    {
+      "title": "Ala ma kota",
+      "body": "napis testowy. Update",
+      "signature": "Kacper",
+      "created": "2021-09-12T13:49:41.682Z"
+    }
+  },
+  {"model": "blog.post",
+    "pk": 4, "fields":
+    {
+      "title": "Kolejny test",
+      "body": "randomowy text",
+      "signature": "XXX",
+      "created": "2021-09-12T13:54:06.651Z"
+    }
+  }
+]

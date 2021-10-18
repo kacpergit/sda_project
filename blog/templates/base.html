@@ -1,0 +1,61 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %}>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HollyMovies</title>
+    {% block styles %}{% bootstrap_css %}{% endblock %}
+    {% block scripts %}{% bootstrap_javascript jquery='full' %}{% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:00BFFF;">
+    <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+    <div class="nav-item dropdown">
+      <div class="navbar-brand active dropdown">
+        <a class="navbar-brand active dropdown" href="#" data-toggle="dropdown">Posts</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'post_new' %}">Add post</a>
+            <a class="dropdown-item" href="{% url 'index' %}">View posts</a>
+          </div>
+      </div>
+      <div class="navbar-brand active dropdown">
+        <a class="navbar-brand active dropdown" href="#" data-toggle="dropdown">Courses</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'course_create' %}">Add course</a>
+            <a class="dropdown-item" href="{% url 'course_list' %}">View courses</a>
+          </div>
+            <a style="position: relative; left: 1400px"class="navbar-brand" href="{% url 'login' %}">Login</a>
+            <a style="position: relative; left: 1400px"class="navbar-brand" href="{% url 'sign_up'%}">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron">
+      {% block title %}
+        {% if title %}<h1>{{ title }}</h1>{% endif %}
+        {% endblock %}
+        {% block messages %}
+          {% for message in messages %}
+            {% if message.tags.split.0 == 'error' %}
+              <div class="alert alert-danger alert-dismissable fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message.message }}
+              </div>
+            {% else %}
+              <div class="alert alert-{{ message.tags.split.0 }} alert-dismissable fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message.message }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endblock %}
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+</body>
+
+</html>

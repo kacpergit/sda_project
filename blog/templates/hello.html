@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Hello - this is the beginning</h1>
+    <ol>
+        {% for post in object_list %}
+
+        <li><strong>{{post.title}}</strong>-
+            {% if post.signature %}<em>{{post.signature}}</em>{% endif %}
+            [dodano {{post.created}}]
+        </li>
+
+        {% endfor %}
+    </ol>
+
+{% endblock %}
